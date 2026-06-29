@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; manifest-src 'self'; connect-src 'self';">
+  <title>Cucito Companion</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#17100A">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- iOS / iPad standalone -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Cucito">
+  <link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- BACKDROP per sidebar mobile -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">🧵</span>
+      <div class="logo-text">
+        <span class="logo-name">Cucito</span>
+        <span class="logo-sub">Companion</span>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a class="nav-item active" data-section="home">
+        <span class="nav-icon">🏠</span><span class="nav-label">Dashboard</span>
+      </a>
+
+      <div class="nav-group">MATERIALI</div>
+      <a class="nav-item" data-section="piedini">
+        <span class="nav-icon">🦶</span><span class="nav-label">Piedini</span><span class="nav-badge">23</span>
+      </a>
+      <a class="nav-item" data-section="aghi">
+        <span class="nav-icon">📍</span><span class="nav-label">Aghi</span><span class="nav-badge">10</span>
+      </a>
+      <a class="nav-item" data-section="fili">
+        <span class="nav-icon">🪡</span><span class="nav-label">Fili</span><span class="nav-badge">8</span>
+      </a>
+      <a class="nav-item" data-section="tessuti">
+        <span class="nav-icon">🧶</span><span class="nav-label">Tessuti</span><span class="nav-badge">26</span>
+      </a>
+
+      <div class="nav-group">ATTREZZATURA</div>
+      <a class="nav-item" data-section="strumenti">
+        <span class="nav-icon">✂️</span><span class="nav-label">Strumenti</span>
+      </a>
+      <a class="nav-item" data-section="merceria">
+        <span class="nav-icon">🧷</span><span class="nav-label">Merceria</span>
+      </a>
+      <a class="nav-item" data-section="stabilizzatori">
+        <span class="nav-icon">📋</span><span class="nav-label">Interfodere</span>
+      </a>
+
+      <div class="nav-group">PROGETTAZIONE</div>
+      <a class="nav-item" data-section="cartamodelli">
+        <span class="nav-icon">📐</span><span class="nav-label">Cartamodelli</span>
+      </a>
+
+      <div class="nav-group">LA MIA MACCHINA</div>
+      <a class="nav-item nav-featured" data-section="singer4432">
+        <span class="nav-icon">⚙️</span><span class="nav-label">Singer 4432 HD</span><span class="nav-star">★</span>
+      </a>
+
+      <div class="nav-group">RISORSE</div>
+      <a class="nav-item" data-section="risorse">
+        <span class="nav-icon">🌐</span><span class="nav-label">Risorse Online</span>
+      </a>
+      <a class="nav-item" data-section="glossario">
+        <span class="nav-icon">📖</span><span class="nav-label">Glossario</span><span class="nav-badge">50</span>
+      </a>
+
+      <div class="nav-group">STRUMENTI</div>
+      <a class="nav-item" data-section="preferiti">
+        <span class="nav-icon">❤️</span><span class="nav-label">Preferiti</span><span class="nav-badge" id="favBadge" style="display:none">0</span>
+      </a>
+      <a class="nav-item" data-section="compatibilita">
+        <span class="nav-icon">🔍</span><span class="nav-label">Compatibilità</span>
+      </a>
+      <a class="nav-item" data-section="manutenzione">
+        <span class="nav-icon">🔧</span><span class="nav-label">Manutenzione</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main-wrapper">
+    <header class="topbar">
+      <button class="nav-toggle" id="navToggle" title="Menu" aria-label="Apri menu">☰</button>
+      <h1 class="topbar-title" id="topbarTitle">Dashboard</h1>
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Cerca in tutta l'app..." autocomplete="off">
+        <button class="search-clear hidden" id="searchClear">✕</button>
+      </div>
+      <button class="dark-toggle" id="darkToggle" title="Modalità scura/chiara">🌙</button>
+    </header>
+    <main class="content" id="content"></main>
+  </div>
+
+</div>
+
+<!-- DETAIL MODAL (slide-in panel) -->
+<div class="modal" id="modal">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-panel">
+    <div class="modal-header">
+      <div class="modal-title-group">
+        <span class="modal-category" id="modalCategory"></span>
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <span class="modal-subtitle" id="modalSubtitle"></span>
+      </div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script src="src/data.js"></script>
+<script src="src/illustrations.js"></script>
+<script src="src/media-index.js"></script>
+<script src="src/app.js"></script>
+
+<!-- Service worker: solo quando servito via http/https (PWA su iPad), non in file:// (Electron) -->
+<script src="src/sw-register.js"></script>
+</body>
+</html>

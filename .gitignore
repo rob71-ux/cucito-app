@@ -1,0 +1,19 @@
+# Dipendenze (Electron, ~200MB — NON servono per GitHub Pages)
+node_modules/
+
+# Log e cache
+*.log
+npm-debug.log*
+
+# File di sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+
+# Build
+dist/
+out/

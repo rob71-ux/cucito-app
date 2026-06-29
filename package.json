@@ -1,0 +1,12 @@
+{
+  "name": "cucito-companion",
+  "version": "1.0.0",
+  "description": "Guida completa al cucito — piedini, aghi, tessuti, cartamodelli e Singer Heavy Duty 4432",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^28.3.0"
+  }
+}

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 100" width="240" height="100">
+  <rect width="240" height="100" fill="#faf7f2" rx="8"/>
+  <!-- fabric edge -->
+  <line x1="10" y1="38" x2="230" y2="38" stroke="#e8ddd0" stroke-width="1.5"/>
+  <line x1="60" y1="20" x2="60" y2="100" stroke="#c8a870" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="63" y="18" font-size="9" fill="#7A6050" font-family="sans-serif">bordo tessuto</text>
+  <!-- overcast pattern: horizontal base + arcs over edge -->
+  <line x1="20" y1="38" x2="58" y2="38" stroke="#5C7A4E" stroke-width="2"/>
+  <line x1="20" y1="38" x2="58" y2="38" stroke="#5C7A4E" stroke-width="2"/>
+  <g stroke="#5C7A4E" stroke-width="2" fill="none">
+    <path d="M28,38 Q44,22 60,38"/>
+    <path d="M40,38 Q56,22 60,30"/>
+    <path d="M52,38 Q60,25 60,22"/>
+  </g>
+  <!-- dots on base line -->
+  <circle cx="20" cy="38" r="2.5" fill="#5C7A4E"/>
+  <circle cx="28" cy="38" r="2.5" fill="#5C7A4E"/>
+  <circle cx="40" cy="38" r="2.5" fill="#5C7A4E"/>
+  <circle cx="52" cy="38" r="2.5" fill="#5C7A4E"/>
+  <!-- continue line -->
+  <line x1="20" y1="38" x2="52" y2="38" stroke="#5C7A4E" stroke-width="2"/>
+  <!-- label -->
+  <text x="80" y="55" font-size="11" fill="#5C7A4E" font-family="sans-serif" font-weight="600">Sorfilatura bordo</text>
+  <text x="80" y="70" font-size="10" fill="#7A6050" font-family="sans-serif">il filo avvolge il bordo del tessuto</text>
+</svg>
