@@ -17,3 +17,9 @@ desktop.ini
 # Build
 dist/
 out/
+
+# SEGRETI — NON pubblicare mai (chiavi API, token). Restano solo in locale.
+CHIAVI-PRIVATE.md
+*.local.md
+.env
+.env.*
